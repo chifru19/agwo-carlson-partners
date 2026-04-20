@@ -3,7 +3,6 @@
     --accent-gold: #c5a059; 
     --text-gray: #4a4a4a; 
 }
-
 body { 
     background-color: #fcfcfc; 
     color: var(--text-gray); 
@@ -11,7 +10,6 @@ body {
     font-family: 'Times New Roman', serif; 
     margin: 0;
 }
-
 header { 
     background: var(--legal-blue); 
     color: white; 
@@ -19,10 +17,8 @@ header {
     border-bottom: 5px solid var(--accent-gold); 
     text-align: center;
 }
-
 .firm-name { letter-spacing: 2px; text-transform: uppercase; font-weight: bold; margin: 0; }
 .firm-tagline { color: var(--accent-gold); font-style: italic; margin-top: 5px; }
-
 .security-badge { 
     display: inline-flex; 
     background: rgba(197, 160, 89, 0.1); 
@@ -32,9 +28,7 @@ header {
     font-size: 0.8rem; 
     margin-top: 15px; 
 }
-
 .main-content { margin-top: 60px; padding: 20px; }
-
 .fortress-box { 
     background: var(--legal-blue); 
     color: white; 
@@ -43,7 +37,6 @@ header {
     border-left: 10px solid var(--accent-gold);
     margin-top: 30px;
 }
-
 .btn-gold { 
     background: var(--accent-gold); 
     color: white; 
@@ -53,5 +46,4 @@ header {
     display: inline-block;
     margin-top: 20px;
 }
-
 footer { text-align: center; padding: 40px 0; font-size: 0.9rem; border-top: 1px solid #eee; margin-top: 50px; }
