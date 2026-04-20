@@ -71,3 +71,29 @@ hr {
     transform: translateY(-5px);
     color: white;
 }
+
+.practice-item { text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 5px; }
+.practice-item i { color: var(--legal-blue); margin-bottom: 10px; }
+
+footer { 
+    text-align: center; 
+    padding: 60px 0; 
+    border-top: 1px solid #eee; 
+    margin-top: 50px; 
+    color: #888;
+}
+
+.engineer-credits { 
+    margin-top: 15px; 
+    font-size: 0.85rem; 
+}
+
+.engineer-credits a { 
+    color: var(--legal-blue); 
+    text-decoration: none; 
+    margin: 0 10px; 
+}
+
+.engineer-credits a:hover { 
+    color: var(--accent-gold); 
+}
