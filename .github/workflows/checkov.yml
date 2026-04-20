@@ -1,0 +1,35 @@
+name: "IaC Security Scan (Checkov)"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  scan:
+    name: Checkov Scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write # Required for GitHub Security Tab integration
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
+          framework: all # Scans Terraform, Docker, CSS, and more
+          soft_fail: false # Set to true if you don't want to block the build
+          output_format: cli,sarif
+          output_file_path: console,results.sarif
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        if: success() || failure()
+        with:
+          sarif_file: results.sarif
