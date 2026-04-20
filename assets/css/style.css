@@ -23,3 +23,28 @@ header {
     border-radius: 8px; 
     border-left: 10px solid var(--accent-gold);
 }
+
+.practice-card {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.practice-card:hover {
+    border-color: var(--accent-gold);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.practice-card i {
+    color: var(--legal-blue);
+    margin-bottom: 15px;
+}
+
+hr {
+    margin-top: 4rem;
+    margin-bottom: 3.5rem;
+    border-width: 0;
+    border-top: 1px solid #E1E1E1;
+}
