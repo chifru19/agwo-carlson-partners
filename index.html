@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Professional Branding */
         body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Arial, sans-serif; background: #fff; }
         header { background: #111; color: white; padding: 80px 0; text-align: center; border-bottom: 4px solid #c5a059; }
-        .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
-        .firm-tagline { color: #c5a059; font-style: italic; }
+        .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+        .firm-tagline { color: #c5a059; font-style: italic; font-size: 1.2em; }
         
-        /* Practice Area Styling */
         .practice-item { text-align: center; padding: 30px 15px; }
         .practice-item i { color: #c5a059; margin-bottom: 20px; display: block; }
         
-        /* THE NEW REVIEW SECTION UI */
+        /* Review Section UI - Dark Mode for Star Visibility */
         .review-container { background: #fcfcfc; padding: 80px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 80px; }
         .review-text-side { padding-right: 40px; }
         .review-title { text-transform: uppercase; font-weight: bold; letter-spacing: 2px; }
@@ -38,29 +38,43 @@
         }
         .cta-button:hover { background: #a6864a; transform: translateY(-2px); }
 
-        /* The Iframe Portal */
+        /* The Iframe Portal - Optimized for Visibility */
         .iframe-window {
             height: 500px;
-            background: white;
-            border: 1px solid #eee;
+            background: #1a1a1a; /* Dark background to make gold stars pop */
+            border: 1px solid #333;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
         }
         .iframe-window iframe { 
             width: 100%; 
             height: 100%; 
             border: none;
-            /* Filter to make the Google colors match the Law Firm brand */
-            filter: grayscale(100%) contrast(105%); 
+            /* Invert filter: converts white sheet to dark and black text to white */
+            filter: invert(92%) hue-rotate(180deg) brightness(1.1) contrast(1.1); 
         }
 
         .fortress-box { background: #111; color: white; padding: 50px; border-radius: 4px; margin-top: 80px; text-align: center; }
         .fortress-box h4 { color: #c5a059; }
 
-        footer { background: #f9f9f9; padding: 80px 0; text-align: center; }
-        .engineer-credits { font-size: 0.85em; color: #888; margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee; }
-        .engineer-credits a { color: #c5a059; text-decoration: none; font-weight: 600; margin: 0 10px; }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            padding: 18px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+            z-index: 999;
+        }
+
+        footer { background: #f9f9f9; padding: 80px 0; border-top: 1px solid #eee; margin-top: 100px; text-align: center; }
+        .engineer-credits { margin-top: 30px; font-size: 0.85em; color: #888; border-top: 1px solid #eee; padding-top: 30px; }
+        .engineer-credits a { color: #c5a059; text-decoration: none; margin: 0 12px; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -82,6 +96,28 @@
             <h5>Direct Correspondence</h5>
             <p><i class="fa-solid fa-envelope"></i> carlson.agwo@agwocarlsonlaw.com</p>
             <p><i class="fa-brands fa-whatsapp"></i> +237 678 501 783</p>
+            <p><i class="fa-solid fa-location-dot"></i> Douala-Bonaberi, Cameroon</p>
+        </div>
+    </div>
+
+    <hr style="margin: 60px 0;">
+
+    <h4 style="text-align: center; text-transform: uppercase; letter-spacing: 2px;">Practice Areas</h4>
+    <div class="row">
+        <div class="four columns practice-item">
+            <i class="fa-solid fa-briefcase fa-4x"></i>
+            <h5>Corporate Law</h5>
+            <p>OHADA compliance and structural M&A advisory.</p>
+        </div>
+        <div class="four columns practice-item">
+            <i class="fa-solid fa-gavel fa-4x"></i>
+            <h5>Litigation</h5>
+            <p>Civil, Commercial, and Criminal chambers.</p>
+        </div>
+        <div class="four columns practice-item">
+            <i class="fa-solid fa-scale-balanced fa-4x"></i>
+            <h5>FDI Advisory</h5>
+            <p>Foreign Direct Investment in the CEMAC region.</p>
         </div>
     </div>
 </div>
@@ -99,7 +135,7 @@
             </div>
             <div class="seven columns">
                 <div class="iframe-window">
-                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR2ozUeBTJIRPWmAAuqoXY1XXBWGrQh17DUhCBB9CdVkLN5Awku5rmyPwaNnEIK91dNU9WGzg1M3Eb4/pubhtml?gid=29892640&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;range=B:E"></iframe>
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR2ozUeBTJIRPWmAAuqoXY1XXBWGrQh17DUhCBB9CdVkLN5Awku5rmyPwaNnEIK91dNU9WGzg1M3Eb4/pubhtml?gid=29892640&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;range=B2:E100"></iframe>
                 </div>
             </div>
         </div>
@@ -109,9 +145,13 @@
 <div class="container">
     <div class="fortress-box">
         <h4><i class="fa-solid fa-lock"></i> Digital Fortress Architecture</h4>
-        <p>Client confidentiality is protected by NIST-standard encryption and specialized Cybersecurity Infrastructure engineered by Frank Fru.</p>
+        <p>Client confidentiality is protected by NIST-standard encryption and specialized Cybersecurity Infrastructure.</p>
     </div>
 </div>
+
+<a href="https://wa.me/237678501783" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i> &nbsp; Contact Counsel
+</a>
 
 <footer>
     <div class="container">
