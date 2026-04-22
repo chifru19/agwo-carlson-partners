@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Essential Review & Profile Styling */
+        /* Review Section visibility fixes */
         .review-section { margin-top: 60px; text-align: center; }
         .review-cta {
             display: inline-block;
@@ -24,12 +24,11 @@
             letter-spacing: 1px;
         }
         .iframe-wrapper {
-            background: #1a1a1a; 
+            background: #1a1a1a; /* Dark background to make gold stars visible */
             border-radius: 8px;
             overflow: hidden;
             height: 450px;
             border: 1px solid #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         .iframe-wrapper iframe {
             width: 100%;
@@ -37,8 +36,9 @@
             border: none;
             filter: invert(90%) hue-rotate(180deg) brightness(1.2);
         }
+        .engineer-credits { margin-top: 20px; font-size: 0.85em; color: #888; border-top: 1px solid #eee; padding-top: 20px; }
+        .engineer-credits a { color: #c5a059; text-decoration: none; margin: 0 10px; font-weight: 600; }
         
-        /* Contact Button Styling */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -49,15 +49,12 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
             z-index: 999;
             display: flex;
             align-items: center;
         }
-        .whatsapp-float i { font-size: 1.5em; margin-right: 10px; }
-
-        .engineer-credits { margin-top: 20px; font-size: 0.85em; color: #888; border-top: 1px solid #eee; padding-top: 20px; text-align: center; }
-        .engineer-credits a { color: #c5a059; text-decoration: none; margin: 0 10px; font-weight: 600; }
+        .whatsapp-float i { margin-right: 10px; font-size: 1.2em; }
     </style>
 </head>
 <body>
@@ -121,13 +118,13 @@
         </div>
     </div>
 
-    <div class="fortress-box" style="margin-top: 60px; text-align: center;">
+    <div class="fortress-box" style="margin-top: 60px;">
         <h4><i class="fa-solid fa-lock"></i> Digital Fortress Architecture</h4>
         <p>Client confidentiality is protected by NIST-standard encryption and Cloudflare Edge security, managed by specialized IT-Security Engineering.</p>
     </div>
 </div>
 
-<a href="https://wa.me/237678501783?text=Hello%20Agwo%20Carlson%20and%20Partners%2C%20I%20would%20like%20to%20request%20a%20legal%20consultation." 
+<a href="https://api.whatsapp.com/send?phone=237678501783&text=Hello%20Agwo%20Carlson%20and%20Partners%2C%20I%20would%20like%20to%20request%20a%20legal%20consultation." 
    class="whatsapp-float" 
    target="_blank">
     <i class="fa-brands fa-whatsapp"></i>
@@ -136,7 +133,7 @@
 
 <footer>
     <div class="container">
-        <p style="text-align: center;">&copy; 2026 Agwo Carlson & Partners. All Rights Reserved.</p>
+        <p>&copy; 2026 Agwo Carlson & Partners. All Rights Reserved.</p>
         <div class="engineer-credits">
             Infrastructure Engineered by <strong>Frank Fru</strong><br>
             <a href="https://frankfru.com" target="_blank"><i class="fa-solid fa-globe"></i> Website</a> | 
