@@ -8,36 +8,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Modern Legal Theme */
-        body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #fff; }
         header { background: #111; color: white; padding: 80px 0; text-align: center; border-bottom: 4px solid #c5a059; }
         .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
         .firm-tagline { color: #c5a059; font-style: italic; font-size: 1.2em; }
-        .security-badge { font-size: 0.75em; background: rgba(197, 160, 89, 0.2); border: 1px solid #c5a059; display: inline-block; padding: 6px 18px; border-radius: 4px; margin-top: 20px; text-transform: uppercase; }
+        .security-badge { font-size: 0.75em; background: rgba(197, 160, 89, 0.1); border: 1px solid #c5a059; display: inline-block; padding: 6px 18px; border-radius: 4px; margin-top: 20px; text-transform: uppercase; color: #c5a059; }
         
+        /* Layout Sections */
         .practice-item { text-align: center; padding: 30px 15px; }
         .practice-item i { color: #c5a059; margin-bottom: 20px; display: block; }
         
         .fortress-box { background: #111; color: white; padding: 50px; border-radius: 4px; margin-top: 80px; text-align: center; }
         .fortress-box h4 { color: #c5a059; margin-bottom: 20px; }
 
-        /* Live Review Iframe Styling */
-        .review-section { margin-top: 80px; }
+        /* Review Section Styling */
+        .review-section { margin-top: 100px; }
         .iframe-wrapper {
             position: relative;
             overflow: hidden;
             width: 100%;
-            padding-top: 50%; /* Aspect Ratio for Spreadsheet */
-            border: 1px solid #eee;
+            height: 500px;
+            border: 1px solid #f0f0f0;
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            background: #fff;
         }
         .iframe-wrapper iframe {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             border: none;
         }
 
-        /* Floating WhatsApp Button */
+        /* Review Button */
+        .cta-button {
+            display: inline-block;
+            background: #c5a059;
+            color: white !important;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+        .cta-button:hover { background: #a6864a; transform: translateY(-2px); }
+
+        /* Floating WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -50,10 +70,9 @@
             font-weight: bold;
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             z-index: 9999;
-            transition: transform 0.3s ease;
         }
-        .whatsapp-float:hover { transform: scale(1.05); color: white; }
 
+        /* Footer */
         footer { background: #f9f9f9; padding: 80px 0; border-top: 1px solid #eee; margin-top: 100px; text-align: center; }
         .engineer-credits { margin-top: 30px; font-size: 0.85em; color: #888; border-top: 1px solid #eee; padding-top: 30px; }
         .engineer-credits strong { color: #333; }
@@ -88,7 +107,7 @@
 
     <hr style="margin: 80px 0;">
 
-    <h4 style="text-align: center; margin-bottom: 50px;">Expertise & Practice Areas</h4>
+    <h4 style="text-align: center; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px;">Practice Areas</h4>
     <div class="row">
         <div class="four columns practice-item">
             <i class="fa-solid fa-briefcase fa-4x"></i>
@@ -107,12 +126,26 @@
         </div>
     </div>
 
-    <div class="row review-section">
+    <div class="row review-section" style="text-align: center;">
         <div class="twelve columns">
-            <h4 style="text-align: center;"><i class="fa-solid fa-star"></i> Client Testimonials</h4>
-            <p style="text-align: center; color: #666; margin-bottom: 30px;">Real-time feedback directly from our clients.</p>
-            <div class="iframe-wrapper">
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR2ozUeBTJIRPWmAAuqoXY1XXBWGrQh17DUhCBB9CdVkLN5Awku5rmyPwaNnEIK91dNU9WGzg1M3Eb4/pubhtml?gid=839077977&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+            <h4 style="text-transform: uppercase; letter-spacing: 2px; font-weight: bold;">
+                <i class="fa-solid fa-star" style="color: #c5a059;"></i> Client Testimonials
+            </h4>
+            <p style="color: #666; max-width: 600px; margin: 0 auto 30px;">
+                Your feedback helps us maintain our standard of excellence. If we have handled your case, please share your experience below.
+            </p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" 
+               target="_blank" 
+               class="cta-button">
+                Leave a Review
+            </a>
+
+            <div style="margin-top: 20px;">
+                <h6 style="color: #888; font-size: 0.75em; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Recent Feedback</h6>
+                <div class="iframe-wrapper">
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR2ozUeBTJIRPWmAAuqoXY1XXBWGrQh17DUhCBB9CdVkLN5Awku5rmyPwaNnEIK91dNU9WGzg1M3Eb4/pubhtml?gid=839077977&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false"></iframe>
+                </div>
             </div>
         </div>
     </div>
