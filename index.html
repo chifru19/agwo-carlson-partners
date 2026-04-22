@@ -7,65 +7,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #fff; }
+        body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Arial, sans-serif; background: #fff; }
         header { background: #111; color: white; padding: 80px 0; text-align: center; border-bottom: 4px solid #c5a059; }
-        .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
-        .firm-tagline { color: #c5a059; font-style: italic; font-size: 1.2em; }
+        .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+        .firm-tagline { color: #c5a059; font-style: italic; }
         
+        /* Practice Area Styling */
         .practice-item { text-align: center; padding: 30px 15px; }
         .practice-item i { color: #c5a059; margin-bottom: 20px; display: block; }
         
-        /* Review Portal UI - Zero Sign-in Required */
-        .review-section { margin-top: 100px; text-align: center; }
+        /* THE NEW REVIEW SECTION UI */
+        .review-container { background: #fcfcfc; padding: 80px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 80px; }
+        .review-text-side { padding-right: 40px; }
+        .review-title { text-transform: uppercase; font-weight: bold; letter-spacing: 2px; }
+        .review-quote { color: #888; font-style: italic; font-size: 1.1em; margin-bottom: 30px; display: block; }
+
         .cta-button {
             display: inline-block;
             background: #c5a059;
             color: white !important;
-            padding: 16px 36px;
+            padding: 16px 40px;
             text-decoration: none;
             border-radius: 4px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.85em;
+            font-size: 0.8em;
             letter-spacing: 1px;
             box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
         .cta-button:hover { background: #a6864a; transform: translateY(-2px); }
 
-        .iframe-wrapper {
-            margin-top: 40px;
-            position: relative;
+        /* The Iframe Portal */
+        .iframe-window {
+            height: 500px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
             overflow: hidden;
-            width: 100%;
-            height: 480px; /* Perfect height for testimonial list */
-            border: 1px solid #f0f0f0;
-            border-radius: 8px;
-            background: #fff;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.05);
         }
-        .iframe-wrapper iframe { width: 100%; height: 100%; border: none; }
+        .iframe-window iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none;
+            /* Filter to make the Google colors match the Law Firm brand */
+            filter: grayscale(100%) contrast(105%); 
+        }
 
         .fortress-box { background: #111; color: white; padding: 50px; border-radius: 4px; margin-top: 80px; text-align: center; }
         .fortress-box h4 { color: #c5a059; }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
-            padding: 18px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            z-index: 999;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
-        }
-
-        footer { background: #f9f9f9; padding: 80px 0; border-top: 1px solid #eee; margin-top: 100px; text-align: center; }
-        .engineer-credits { margin-top: 30px; font-size: 0.85em; color: #888; border-top: 1px solid #eee; padding-top: 30px; }
-        .engineer-credits a { color: #c5a059; text-decoration: none; margin: 0 12px; font-weight: 600; }
+        footer { background: #f9f9f9; padding: 80px 0; text-align: center; }
+        .engineer-credits { font-size: 0.85em; color: #888; margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee; }
+        .engineer-credits a { color: #c5a059; text-decoration: none; font-weight: 600; margin: 0 10px; }
     </style>
 </head>
 <body>
@@ -87,56 +82,36 @@
             <h5>Direct Correspondence</h5>
             <p><i class="fa-solid fa-envelope"></i> carlson.agwo@agwocarlsonlaw.com</p>
             <p><i class="fa-brands fa-whatsapp"></i> +237 678 501 783</p>
-            <p><i class="fa-solid fa-location-dot"></i> Douala-Bonaberi, Cameroon</p>
         </div>
-    </div>
-
-    <hr style="margin: 60px 0;">
-
-    <h4 style="text-align: center; text-transform: uppercase; letter-spacing: 2px;">Practice Areas</h4>
-    <div class="row">
-        <div class="four columns practice-item">
-            <i class="fa-solid fa-briefcase fa-4x"></i>
-            <h5>Corporate Law</h5>
-            <p>OHADA compliance and structural M&A advisory.</p>
-        </div>
-        <div class="four columns practice-item">
-            <i class="fa-solid fa-gavel fa-4x"></i>
-            <h5>Litigation</h5>
-            <p>High-stakes Civil, Commercial, and Criminal chambers.</p>
-        </div>
-        <div class="four columns practice-item">
-            <i class="fa-solid fa-scale-balanced fa-4x"></i>
-            <h5>FDI Advisory</h5>
-            <p>Foreign Direct Investment in the CEMAC region.</p>
-        </div>
-    </div>
-
-    <div class="row review-section">
-        <div class="twelve columns">
-            <h4 style="text-transform: uppercase; font-weight: bold;">
-                <i class="fa-solid fa-star" style="color: #c5a059;"></i> Client Testimonials
-            </h4>
-            <p style="color: #666; margin-bottom: 30px;">Real-time transparency from our corporate and private partners.</p>
-
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" 
-               target="_blank" class="cta-button">Leave a Review</a>
-
-            <div class="iframe-wrapper">
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR2ozUeBTJIRPWmAAuqoXY1XXBWGrQh17DUhCBB9CdVkLN5Awku5rmyPwaNnEIK91dNU9WGzg1M3Eb4/pubhtml?gid=29892640&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;range=B:E"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <div class="fortress-box">
-        <h4><i class="fa-solid fa-lock"></i> Digital Fortress Architecture</h4>
-        <p>Client confidentiality is protected by NIST-standard encryption and specialized Cybersecurity Infrastructure engineered for maximum data privacy.</p>
     </div>
 </div>
 
-<a href="https://wa.me/237678501783" class="whatsapp-float" target="_blank">
-    <i class="fa-brands fa-whatsapp"></i> &nbsp; Contact Counsel
-</a>
+<div class="review-container">
+    <div class="container">
+        <div class="row">
+            <div class="five columns review-text-side">
+                <h4 class="review-title">Client Testimonials</h4>
+                <span class="review-quote">"Real-time transparency from our corporate and private partners."</span>
+                <p>We pride ourselves on the integrity of our legal counsel. Your feedback is vital to our continued standard of excellence.</p>
+                <br>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" 
+                   target="_blank" class="cta-button">Leave a Review</a>
+            </div>
+            <div class="seven columns">
+                <div class="iframe-window">
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR2ozUeBTJIRPWmAAuqoXY1XXBWGrQh17DUhCBB9CdVkLN5Awku5rmyPwaNnEIK91dNU9WGzg1M3Eb4/pubhtml?gid=29892640&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;range=B:E"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="fortress-box">
+        <h4><i class="fa-solid fa-lock"></i> Digital Fortress Architecture</h4>
+        <p>Client confidentiality is protected by NIST-standard encryption and specialized Cybersecurity Infrastructure engineered by Frank Fru.</p>
+    </div>
+</div>
 
 <footer>
     <div class="container">
