@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #fff; }
+        body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #fff; scroll-behavior: smooth; }
         header { background: #111; color: white; padding: 80px 0; text-align: center; border-bottom: 4px solid #c5a059; }
         .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
         .firm-tagline { color: #c5a059; font-style: italic; font-size: 1.2em; }
@@ -34,15 +34,20 @@
             letter-spacing: 1px;
         }
 
-        .iframe-wrapper {
-            background: #ffffff; 
-            border-radius: 12px;
-            overflow: hidden;
-            height: 500px;
-            border: 1px solid #eee;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        /* Testimonial Card Layout matches Carlson Dam dynamic injection */
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
+        .review-card { 
+            text-align: left; 
+            background: #fdfdfd; 
+            padding: 35px; 
+            border-radius: 8px; 
+            border: 1px solid #eee; 
+            border-top: 4px solid #c5a059;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
         }
-        .iframe-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+        #inquiry-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: white; padding: 40px; border-radius: 8px; max-width: 600px; width: 100%; position: relative; }
 
         .whatsapp-float {
             position: fixed;
@@ -82,7 +87,8 @@
     <div class="row">
         <div class="seven columns">
             <h4>Global Reach. Local Expertise.</h4>
-            <p>Strategically positioned to bridge the gap between the Cameroonian legal market and international corporate standards. Specializing in <strong>OHADA Law</strong> and high-stakes <strong>Litigation</strong>.</p>
+            <p>Strategically positioned to bridge the gap between the Cameroonian legal market and international corporate standards. Specializing in <strong>OHADA Law</strong>, high-stakes <strong>Litigation</strong>, and international arbitration.</p>
+            <button onclick="toggleModal()" class="button-primary" style="background:#c5a059; border-color:#c5a059">Request Service Manifest</button>
         </div>
         <div class="five columns" style="background: #f4f4f4; padding: 35px; border-radius: 4px; border-right: 4px solid #c5a059;">
             <h6>Direct Correspondence</h6>
@@ -92,41 +98,58 @@
         </div>
     </div>
 
-    <hr style="margin: 60px 0;">
+    <hr style="margin: 80px 0;">
 
-    <h4 style="text-align: center; text-transform: uppercase; letter-spacing: 2px;">Practice Areas</h4>
+    <h4 style="text-align: center; text-transform: uppercase; letter-spacing: 2px;">Core Practice Areas</h4>
     <div class="row">
         <div class="four columns practice-item">
             <i class="fa-solid fa-briefcase fa-3x"></i>
             <h5>Corporate Law</h5>
-            <p>OHADA compliance and M&A advisory.</p>
+            <p>Comprehensive OHADA compliance, M&A advisory, and corporate governance.</p>
         </div>
         <div class="four columns practice-item">
             <i class="fa-solid fa-gavel fa-3x"></i>
             <h5>Litigation</h5>
-            <p>Civil, Commercial, and Criminal chambers.</p>
+            <p>Expert representation across Civil, Commercial, and Criminal chambers.</p>
         </div>
         <div class="four columns practice-item">
             <i class="fa-solid fa-scale-balanced fa-3x"></i>
             <h5>FDI Advisory</h5>
-            <p>Foreign Direct Investment in CEMAC region.</p>
+            <p>Foreign Direct Investment guidance in the CEMAC region.</p>
         </div>
     </div>
 
-    <div class="row review-section">
+    <div class="row review-section" id="testimonials">
         <div class="twelve columns">
             <h4 style="text-transform: uppercase; letter-spacing: 2px;">Client Testimonials</h4>
-            <p style="color: #666; margin-bottom: 20px;">Real-time transparency from our corporate and private partners.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Leave a Review</a>
-            <div class="iframe-wrapper">
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR2ozUeBTJIRPWmAAuqoXY1XXBWGrQh17DUhCBB9CdVkLN5Awku5rmyPwaNnEIK91dNU9WGzg1M3Eb4/pubhtml?gid=29892640&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;range=B2:E100"></iframe>
+            <p style="color: #666; margin-bottom: 20px;">Direct transparency from our corporate and private partners.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Submit Feedback</a>
+            
+            <div id="dynamic-reviews" class="testimonial-grid">
+                <p style="opacity: 0.5; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; text-align: center; width: 100%;">Synchronizing Testimonials...</p>
             </div>
         </div>
     </div>
 
     <div class="fortress-box">
         <h4><i class="fa-solid fa-lock"></i> Digital Fortress Architecture</h4>
-        <p>Client confidentiality is protected by NIST-standard encryption and Cloudflare Edge security, managed by specialized IT-Security Engineering.</p>
+        <p>Client confidentiality is protected by NIST-standard encryption and Cloudflare Edge security, ensuring the highest level of data sovereignty.</p>
+    </div>
+</div>
+
+<div id="inquiry-modal">
+    <div class="modal-content">
+        <h4 style="color:#111">Bespoke Legal Inquiry</h4>
+        <label>Service Area</label>
+        <select class="u-full-width" id="inq-type">
+            <option value="Corporate">Corporate / OHADA</option>
+            <option value="Litigation">Litigation</option>
+            <option value="Consultation">General Consultation</option>
+        </select>
+        <label>Message</label>
+        <textarea class="u-full-width" placeholder="Briefly describe your requirements..." id="inq-msg"></textarea>
+        <button class="button-primary" style="background:#c5a059; border-color:#c5a059" onclick="sendInquiry()">Send via WhatsApp</button>
+        <button class="button" style="margin-left: 10px;" onclick="toggleModal()">Cancel</button>
     </div>
 </div>
 
@@ -146,6 +169,43 @@
         </div>
     </div>
 </footer>
+
+<script>
+    function toggleModal() {
+        const modal = document.getElementById('inquiry-modal');
+        modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    function sendInquiry() {
+        const type = document.getElementById('inq-type').value;
+        const msg = document.getElementById('inq-msg').value;
+        const finalMsg = encodeURIComponent(`Legal Inquiry: ${type}\nDetails: ${msg}`);
+        window.open(`https://wa.me/237678501783?text=${finalMsg}`, '_blank');
+        toggleModal();
+    }
+
+    function fetchReviews() {
+        // UPDATED URL FROM SCREENSHOT 10.16.51
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzO5nfvdNiK7GWAOla8Mxgv9WMv-0fY7LDlfdGQrjYB8SlVFcdKf_yL3TH-7JTrvNOEHg/exec";
+
+        fetch(scriptURL)
+            .then(r => r.text())
+            .then(html => {
+                const container = document.getElementById('dynamic-reviews');
+                if (html && html.trim().length > 10) {
+                    container.innerHTML = html;
+                } else {
+                    container.innerHTML = "<p style='opacity: 0.5; width: 100%; text-align: center;'>No public testimonials found.</p>";
+                }
+            })
+            .catch(e => {
+                console.error("Sync Error:", e);
+                document.getElementById('dynamic-reviews').innerHTML = "<p style='color:red;'>Service temporarily unavailable.</p>";
+            });
+    }
+
+    window.onload = fetchReviews;
+</script>
 
 </body>
 </html>
