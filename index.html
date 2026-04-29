@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #fff; }
-        header { background: #111; color: white; padding: 80px 0; text-align: center; border-bottom: 4px solid #c5a059; }
+        header { background: #111; color: white; padding: 60px 0; text-align: center; border-bottom: 4px solid #c5a059; }
         
-        /* Logo Styling */
-        .logo-emblem { width: 140px; height: auto; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(197, 160, 89, 0.3); }
+        /* Logo Fix */
+        .logo-emblem { width: 140px; height: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.3); }
         
         .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
         .firm-tagline { color: #c5a059; font-style: italic; font-size: 1.2em; }
@@ -52,7 +52,7 @@
 
 <header>
     <div class="container">
-        <img src="images/law-firm-logo.jpg" alt="Agwo Carlson Logo" class="logo-emblem">
+        <img src="images/law-firm-logo.jpg" alt="Logo" class="logo-emblem" onerror="this.src='https://raw.githubusercontent.com/chifru19/wonder-way-tours/main/images/logo.png'; this.style.backgroundColor='white';">
         <h1 class="firm-name">Agwo Carlson & Partners</h1>
         <p class="firm-tagline">Multidisciplinary Advocates & Legal Consultants</p>
         <div class="security-badge">
@@ -99,7 +99,6 @@
     <div class="row review-section">
         <div class="twelve columns">
             <h4 style="text-transform: uppercase; letter-spacing: 2px;">Client Testimonials</h4>
-            <p style="color: #666; margin-bottom: 20px;">Real-time transparency from our corporate and private partners.</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Leave a Review</a>
             
             <div id="dynamic-reviews" class="testimonial-grid">
@@ -139,15 +138,15 @@
         .then(r => r.text())
         .then(html => {
             const container = document.getElementById('dynamic-reviews');
-            if(html && html.trim().length > 100) { 
+            if(html && html.trim().length > 10) { 
                 container.innerHTML = html;
             } else {
-                container.innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>The chronicle is currently private. No public testimonials found.</p>";
+                container.innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>The chronicle is currently private.</p>";
             }
         })
         .catch(e => {
             console.error("Sync Error:", e);
-            document.getElementById('dynamic-reviews').innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>Service connection established. Awaiting data...</p>";
+            document.getElementById('dynamic-reviews').innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>Service ready. No public data available.</p>";
         });
     }
     window.onload = fetchReviews;
