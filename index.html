@@ -9,6 +9,10 @@
     <style>
         body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #fff; }
         header { background: #111; color: white; padding: 80px 0; text-align: center; border-bottom: 4px solid #c5a059; }
+        
+        /* Logo Styling */
+        .logo-emblem { width: 140px; height: auto; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(197, 160, 89, 0.3); }
+        
         .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
         .firm-tagline { color: #c5a059; font-style: italic; font-size: 1.2em; }
         .security-badge { font-size: 0.75em; background: rgba(197, 160, 89, 0.1); border: 1px solid #c5a059; display: inline-block; padding: 6px 18px; border-radius: 4px; margin-top: 20px; text-transform: uppercase; color: #c5a059; letter-spacing: 1px; }
@@ -21,44 +25,21 @@
 
         .review-section { margin-top: 80px; text-align: center; }
         .review-cta {
-            display: inline-block;
-            background: #c5a059;
-            color: white !important;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            font-size: 0.8em;
-            letter-spacing: 1px;
+            display: inline-block; background: #c5a059; color: white !important; padding: 14px 30px;
+            text-decoration: none; border-radius: 4px; font-weight: bold; margin-bottom: 40px;
+            text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px;
         }
 
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
         .review-card { 
-            text-align: left; 
-            background: #fdfdfd; 
-            padding: 30px; 
-            border-radius: 8px; 
-            border: 1px solid #eee; 
-            border-top: 4px solid #c5a059;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            text-align: left; background: #fdfdfd; padding: 30px; border-radius: 8px; 
+            border: 1px solid #eee; border-top: 4px solid #c5a059; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
         .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-            z-index: 999;
-            display: flex;
-            align-items: center;
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
+            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2); z-index: 999; display: flex; align-items: center;
         }
         .whatsapp-float i { margin-right: 10px; font-size: 1.3em; }
 
@@ -71,6 +52,7 @@
 
 <header>
     <div class="container">
+        <img src="images/law-firm-logo.jpg" alt="Agwo Carlson Logo" class="logo-emblem">
         <h1 class="firm-name">Agwo Carlson & Partners</h1>
         <p class="firm-tagline">Multidisciplinary Advocates & Legal Consultants</p>
         <div class="security-badge">
@@ -118,7 +100,7 @@
         <div class="twelve columns">
             <h4 style="text-transform: uppercase; letter-spacing: 2px;">Client Testimonials</h4>
             <p style="color: #666; margin-bottom: 20px;">Real-time transparency from our corporate and private partners.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BE_YOUR_FORM_ID/viewform" target="_blank" class="review-cta">Leave a Review</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Leave a Review</a>
             
             <div id="dynamic-reviews" class="testimonial-grid">
                 <p style="opacity: 0.5; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Syncing Testimonials...</p>
@@ -153,23 +135,19 @@
     function fetchReviews() {
         const scriptURL = "https://script.google.com/macros/s/AKfycbzlHXIfmVZBz8yxp2UxyPsE4M_imgqpHNV1Tzyl2odBwn5YJiTKeKNG-0-7KKZErplEkw/exec";
         
-        fetch(scriptURL, {
-            method: 'GET',
-            mode: 'cors', // Force CORS mode
-            headers: { 'Content-Type': 'text/plain' }
-        })
+        fetch(scriptURL)
         .then(r => r.text())
         .then(html => {
             const container = document.getElementById('dynamic-reviews');
-            if(html && html.length > 50) { // Check for actual content
+            if(html && html.trim().length > 100) { 
                 container.innerHTML = html;
             } else {
-                container.innerHTML = "<p style='opacity: 0.5;'>The chronicle is currently private.</p>";
+                container.innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>The chronicle is currently private. No public testimonials found.</p>";
             }
         })
         .catch(e => {
             console.error("Sync Error:", e);
-            document.getElementById('dynamic-reviews').innerHTML = "<p style='opacity: 0.5;'>Service connection established. Awaiting data...</p>";
+            document.getElementById('dynamic-reviews').innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>Service connection established. Awaiting data...</p>";
         });
     }
     window.onload = fetchReviews;
