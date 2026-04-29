@@ -34,7 +34,6 @@
             letter-spacing: 1px;
         }
 
-        /* NEW: Testimonial Card Styling for Dynamic Injection */
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
         .review-card { 
             text-align: left; 
@@ -119,7 +118,7 @@
         <div class="twelve columns">
             <h4 style="text-transform: uppercase; letter-spacing: 2px;">Client Testimonials</h4>
             <p style="color: #666; margin-bottom: 20px;">Real-time transparency from our corporate and private partners.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Leave a Review</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BE_YOUR_FORM_ID/viewform" target="_blank" class="review-cta">Leave a Review</a>
             
             <div id="dynamic-reviews" class="testimonial-grid">
                 <p style="opacity: 0.5; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Syncing Testimonials...</p>
@@ -154,24 +153,26 @@
     function fetchReviews() {
         const scriptURL = "https://script.google.com/macros/s/AKfycbzlHXIfmVZBz8yxp2UxyPsE4M_imgqpHNV1Tzyl2odBwn5YJiTKeKNG-0-7KKZErplEkw/exec";
         
-        fetch(scriptURL)
-            .then(r => r.text())
-            .then(html => {
-                const container = document.getElementById('dynamic-reviews');
-                if(html && html.trim().length > 10) {
-                    container.innerHTML = html;
-                } else {
-                    container.innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>No public testimonials found.</p>";
-                }
-            })
-            .catch(e => {
-                console.error("Sync error:", e);
-                document.getElementById('dynamic-reviews').innerHTML = "<p style='color:red; font-size: 11px; text-transform: uppercase;'>Service temporarily unavailable.</p>";
-            });
+        fetch(scriptURL, {
+            method: 'GET',
+            mode: 'cors', // Force CORS mode
+            headers: { 'Content-Type': 'text/plain' }
+        })
+        .then(r => r.text())
+        .then(html => {
+            const container = document.getElementById('dynamic-reviews');
+            if(html && html.length > 50) { // Check for actual content
+                container.innerHTML = html;
+            } else {
+                container.innerHTML = "<p style='opacity: 0.5;'>The chronicle is currently private.</p>";
+            }
+        })
+        .catch(e => {
+            console.error("Sync Error:", e);
+            document.getElementById('dynamic-reviews').innerHTML = "<p style='opacity: 0.5;'>Service connection established. Awaiting data...</p>";
+        });
     }
-
     window.onload = fetchReviews;
 </script>
-
 </body>
 </html>
