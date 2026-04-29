@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #fff; }
-        header { background: #111; color: white; padding: 60px 0; text-align: center; border-bottom: 4px solid #c5a059; }
+        body { color: #222; line-height: 1.7; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #fff; scroll-behavior: smooth; }
+        header { background: #111; color: white; padding: 80px 0; text-align: center; border-bottom: 4px solid #c5a059; }
         
-        /* Logo Fix */
-        .logo-emblem { width: 140px; height: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.3); }
+        .logo-emblem { width: 140px; height: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
         .firm-name { font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
         .firm-tagline { color: #c5a059; font-style: italic; font-size: 1.2em; }
@@ -52,7 +51,7 @@
 
 <header>
     <div class="container">
-        <img src="images/law-firm-logo.jpg" alt="Logo" class="logo-emblem" onerror="this.src='https://raw.githubusercontent.com/chifru19/wonder-way-tours/main/images/logo.png'; this.style.backgroundColor='white';">
+        <img src="images/law-firm-logo.jpg" alt="Logo" class="logo-emblem">
         <h1 class="firm-name">Agwo Carlson & Partners</h1>
         <p class="firm-tagline">Multidisciplinary Advocates & Legal Consultants</p>
         <div class="security-badge">
@@ -99,6 +98,7 @@
     <div class="row review-section">
         <div class="twelve columns">
             <h4 style="text-transform: uppercase; letter-spacing: 2px;">Client Testimonials</h4>
+            <p style="color: #666; margin-bottom: 20px;">Real-time transparency from our corporate and private partners.</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Leave a Review</a>
             
             <div id="dynamic-reviews" class="testimonial-grid">
@@ -132,21 +132,31 @@
 
 <script>
     function fetchReviews() {
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzlHXIfmVZBz8yxp2UxyPsE4M_imgqpHNV1Tzyl2odBwn5YJiTKeKNG-0-7KKZErplEkw/exec";
+        // NEW DEPLOYMENT URL INTEGRATED
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwjegVN4IhYTiudPIYqqVOuWS1vFgWWmFHhpvleCCd7cKrO4H5vfwCRIEcvG_ETvq8r1A/exec";
         
         fetch(scriptURL)
-        .then(r => r.text())
-        .then(html => {
+        .then(response => response.json())
+        .then(data => {
             const container = document.getElementById('dynamic-reviews');
-            if(html && html.trim().length > 10) { 
-                container.innerHTML = html;
+            if(data && data.length > 0) { 
+                container.innerHTML = data.map(item => {
+                    const stars = '★'.repeat(item.rating || 5) + '☆'.repeat(5 - (item.rating || 5));
+                    return `
+                        <div class="review-card">
+                            <div style="color: #c5a059; margin-bottom: 10px;">${stars}</div>
+                            <p style="font-style: italic;">"${item.text || item.review}"</p>
+                            <h6 style="text-transform: uppercase; font-size: 11px; margin-top: 10px;">- ${item.name}</h6>
+                        </div>
+                    `;
+                }).join('');
             } else {
-                container.innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>The chronicle is currently private.</p>";
+                container.innerHTML = "<p style='opacity: 0.5;'>No public testimonials found.</p>";
             }
         })
         .catch(e => {
             console.error("Sync Error:", e);
-            document.getElementById('dynamic-reviews').innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>Service ready. No public data available.</p>";
+            document.getElementById('dynamic-reviews').innerHTML = "<p style='opacity: 0.5;'>Service connection established. Awaiting data...</p>";
         });
     }
     window.onload = fetchReviews;
