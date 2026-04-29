@@ -21,24 +21,50 @@
 
         .review-section { margin-top: 80px; text-align: center; }
         .review-cta {
-            display: inline-block; background: #c5a059; color: white !important; padding: 14px 30px;
-            text-decoration: none; border-radius: 4px; font-weight: bold; margin-bottom: 40px;
-            text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px;
+            display: inline-block;
+            background: #c5a059;
+            color: white !important;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 1px;
         }
 
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
+        /* Testimonial Card Styling */
+        .testimonial-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px; 
+        }
         .review-card { 
-            text-align: left; background: #fdfdfd; padding: 35px; border-radius: 8px; 
-            border: 1px solid #eee; border-top: 4px solid #c5a059; box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+            text-align: left; 
+            background: #fcfcfc; 
+            padding: 30px; 
+            border-radius: 8px; 
+            border: 1px solid #eee; 
+            border-top: 4px solid #c5a059;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-
-        #inquiry-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
-        .modal-content { background: white; padding: 40px; border-radius: 8px; max-width: 600px; width: 100%; position: relative; }
 
         .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white;
-            padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2); z-index: 999; display: flex; align-items: center;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            z-index: 999;
+            display: flex;
+            align-items: center;
         }
         .whatsapp-float i { margin-right: 10px; font-size: 1.3em; }
 
@@ -53,7 +79,9 @@
     <div class="container">
         <h1 class="firm-name">Agwo Carlson & Partners</h1>
         <p class="firm-tagline">Multidisciplinary Advocates & Legal Consultants</p>
-        <div class="security-badge"><i class="fa-solid fa-shield-halved"></i> &nbsp; NIST SC-7 SECURED OFFICE</div>
+        <div class="security-badge">
+            <i class="fa-solid fa-shield-halved"></i> &nbsp; NIST SC-7 SECURED OFFICE
+        </div>
     </div>
 </header>
 
@@ -61,8 +89,7 @@
     <div class="row">
         <div class="seven columns">
             <h4>Global Reach. Local Expertise.</h4>
-            <p>Strategically positioned to bridge the gap between the Cameroonian legal market and international corporate standards. Specializing in <strong>OHADA Law</strong> and international arbitration.</p>
-            <button onclick="toggleModal()" class="button-primary" style="background:#c5a059; border-color:#c5a059">Request Service Manifest</button>
+            <p>Strategically positioned to bridge the gap between the Cameroonian legal market and international corporate standards. Specializing in <strong>OHADA Law</strong> and high-stakes <strong>Litigation</strong>.</p>
         </div>
         <div class="five columns" style="background: #f4f4f4; padding: 35px; border-radius: 4px; border-right: 4px solid #c5a059;">
             <h6>Direct Correspondence</h6>
@@ -72,73 +99,84 @@
         </div>
     </div>
 
-    <div class="row review-section" id="testimonials">
+    <hr style="margin: 60px 0;">
+
+    <h4 style="text-align: center; text-transform: uppercase; letter-spacing: 2px;">Practice Areas</h4>
+    <div class="row">
+        <div class="four columns practice-item">
+            <i class="fa-solid fa-briefcase fa-3x"></i>
+            <h5>Corporate Law</h5>
+            <p>OHADA compliance and M&A advisory.</p>
+        </div>
+        <div class="four columns practice-item">
+            <i class="fa-solid fa-gavel fa-3x"></i>
+            <h5>Litigation</h5>
+            <p>Civil, Commercial, and Criminal chambers.</p>
+        </div>
+        <div class="four columns practice-item">
+            <i class="fa-solid fa-scale-balanced fa-3x"></i>
+            <h5>FDI Advisory</h5>
+            <p>Foreign Direct Investment in CEMAC region.</p>
+        </div>
+    </div>
+
+    <div class="row review-section">
         <div class="twelve columns">
             <h4 style="text-transform: uppercase; letter-spacing: 2px;">Client Testimonials</h4>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Submit Feedback</a>
+            <p style="color: #666; margin-bottom: 20px;">Real-time transparency from our corporate and private partners.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Leave a Review</a>
+            
             <div id="dynamic-reviews" class="testimonial-grid">
-                <p style="opacity: 0.5; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; text-align: center; width: 100%;">Synchronizing Testimonials...</p>
+                <p style="opacity: 0.5; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;">Syncing Guest Chronicles...</p>
             </div>
         </div>
     </div>
 
     <div class="fortress-box">
         <h4><i class="fa-solid fa-lock"></i> Digital Fortress Architecture</h4>
-        <p>Client confidentiality is protected by NIST-standard encryption and Cloudflare Edge security.</p>
+        <p>Client confidentiality is protected by NIST-standard encryption and Cloudflare Edge security, managed by specialized IT-Security Engineering.</p>
     </div>
 </div>
 
-<div id="inquiry-modal">
-    <div class="modal-content">
-        <h4>Bespoke Legal Inquiry</h4>
-        <label>Service Area</label>
-        <select class="u-full-width" id="inq-type">
-            <option value="Corporate">Corporate / OHADA</option>
-            <option value="Litigation">Litigation</option>
-        </select>
-        <label>Message</label>
-        <textarea class="u-full-width" id="inq-msg"></textarea>
-        <button class="button-primary" style="background:#c5a059; border-color:#c5a059" onclick="sendInquiry()">Send via WhatsApp</button>
-        <button class="button" onclick="toggleModal()">Cancel</button>
-    </div>
-</div>
+<a href="https://api.whatsapp.com/send?phone=237678501783&text=Hello%20Agwo%20Carlson%20and%20Partners%2C%20I%20would%20like%20to%20request%20a%20legal%20consultation." class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Contact Counsel</span>
+</a>
 
 <footer>
     <div class="container">
-        <p>&copy; 2026 Agwo Carlson & Partners. Infrastructure Engineered by <strong>Frank Fru</strong></p>
+        <p>&copy; 2026 Agwo Carlson & Partners. All Rights Reserved.</p>
+        <div class="engineer-credits">
+            Infrastructure Engineered by <strong>Frank Fru</strong><br>
+            <a href="https://frankfru.com" target="_blank">Website</a> | 
+            <a href="https://github.com/chifru19" target="_blank">GitHub</a> | 
+            <a href="https://linkedin.com/in/frankfru/" target="_blank">LinkedIn</a>
+        </div>
     </div>
 </footer>
 
 <script>
-    function toggleModal() {
-        const modal = document.getElementById('inquiry-modal');
-        modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-    }
-
-    function sendInquiry() {
-        const type = document.getElementById('inq-type').value;
-        const msg = document.getElementById('inq-msg').value;
-        window.open(`https://wa.me/237678501783?text=${encodeURIComponent('Legal Inquiry: ' + type + '\n' + msg)}`, '_blank');
-        toggleModal();
-    }
-
     function fetchReviews() {
-        // Final verified deployment URL
-        const scriptURL = "https://script.google.com/macros/s/AKfycbzO5nfvdNiK7GWAOla8Mxgv9WMv-0fY7LDlfdGQrjYB8SlVFcdKf_yL3TH-7JTrvNOEHg/exec";
-
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzlHXIfmVZBz8yxp2UxyPsE4M_imgqpHNV1Tzyl2odBwn5YJiTKeKNG-0-7KKZErplEkw/exec";
+        
         fetch(scriptURL)
             .then(r => r.text())
             .then(html => {
                 const container = document.getElementById('dynamic-reviews');
-                if (html && html.trim().length > 10) {
+                if(html && html.trim().length > 10) {
                     container.innerHTML = html;
                 } else {
-                    container.innerHTML = "<p style='opacity: 0.5; width: 100%; text-align: center;'>No public testimonials found.</p>";
+                    container.innerHTML = "<p style='opacity: 0.5; font-size: 12px;'>No public testimonials found.</p>";
                 }
             })
-            .catch(e => console.error("Sync Error:", e));
+            .catch(e => {
+                console.error("Sync error:", e);
+                document.getElementById('dynamic-reviews').innerHTML = "<p style='color:red; font-size: 12px;'>Service temporarily unavailable.</p>";
+            });
     }
+
     window.onload = fetchReviews;
 </script>
+
 </body>
 </html>
