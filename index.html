@@ -37,10 +37,17 @@
             padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
             box-shadow: 0 6px 20px rgba(0,0,0,0.2); z-index: 999; display: flex; align-items: center;
         }
+        .whatsapp-float i { margin-right: 10px; font-size: 1.3em; }
 
         footer { background: #f9f9f9; padding: 80px 0; border-top: 1px solid #eee; margin-top: 100px; text-align: center; }
+        
+        /* Engineer Credit Styling */
         .engineer-credits { margin-top: 30px; font-size: 0.85em; color: #888; border-top: 1px solid #eee; padding-top: 30px; }
-        .engineer-credits a { color: #c5a059; text-decoration: none; margin: 0 10px; font-weight: 600; }
+        .engineer-credits strong { color: #333; }
+        .engineer-links { margin-top: 15px; }
+        .engineer-links a { color: #888; text-decoration: none; margin: 0 12px; font-size: 1.1em; transition: color 0.3s; }
+        .engineer-links a:hover { color: #c5a059; }
+        .portfolio-link { display: block; margin-top: 10px; color: #c5a059 !important; font-weight: 700; text-transform: uppercase; font-size: 0.75em; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -75,7 +82,6 @@
     <div class="row review-section">
         <div class="twelve columns">
             <h4 style="text-transform: uppercase; letter-spacing: 2px;">Client Testimonials</h4>
-            <p style="color: #666; margin-bottom: 20px;">Real-time transparency from our corporate and private partners.</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGTIMrIdbY6BEy0aofOUkS2Z5r_jx-hLXwaZGD0L0ZI3ONpA/viewform" target="_blank" class="review-cta">Leave a Review</a>
             
             <div id="dynamic-reviews" class="testimonial-grid">
@@ -93,7 +99,15 @@
 <footer>
     <div class="container">
         <p>&copy; 2026 Agwo Carlson & Partners. All Rights Reserved.</p>
-        <div class="engineer-credits">Infrastructure Engineered by <strong>Frank Fru</strong></div>
+        
+        <div class="engineer-credits">
+            Infrastructure Engineered by <strong>Frank Fru</strong>
+            <div class="engineer-links">
+                <a href="https://github.com/chifru19" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/frankfru/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <a href="https://frankfru.com" target="_blank" class="portfolio-link">Explore Portfolio</a>
+        </div>
     </div>
 </footer>
 
@@ -104,7 +118,6 @@
         fetch(scriptURL)
         .then(response => response.json())
         .then(data => {
-            // Check if the data is a string (as seen in your screenshot) and parse it if necessary
             let reviews = typeof data === 'string' ? JSON.parse(data) : data;
             
             const container = document.getElementById('dynamic-reviews');
