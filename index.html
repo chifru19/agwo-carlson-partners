@@ -20,7 +20,11 @@
         .practice-item h6 { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
         .practice-item p { font-size: 0.9em; line-height: 1.4; color: #666; }
 
-        .profile-section { background: #fdfdfd; padding: 60px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 60px;}
+        /* Profile Section with Image */
+        .profile-section { background: #fdfdfd; padding: 80px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-top: 60px;}
+        .profile-portrait { width: 100%; max-width: 350px; border-radius: 4px; border-bottom: 6px solid #c5a059; box-shadow: 0 15px 35px rgba(0,0,0,0.1); transition: 0.3s; }
+        .profile-portrait:hover { transform: translateY(-5px); }
+        
         .competence-list { column-count: 2; column-gap: 40px; font-size: 0.9em; }
 
         .expertise-section { padding: 60px 0; }
@@ -92,11 +96,19 @@
 
 <div class="profile-section">
     <div class="container">
-        <h4 style="text-transform: uppercase; letter-spacing: 2px;">Professional Profile</h4>
-        <h5 style="color:#c5a059;">NDAM Carlson AGWO | Managing Partner</h5>
-        <p>NDAM Carlson AGWO is a seasoned public interest lawyer and the managing partner of AGWO CARLSON AND PARTNERS LAW OFFICE. He is a Barrister and Solicitor of the Supreme Court of Cameroon, as well as the Federal Supreme Court of Nigeria. Furthermore, he doubles as a Government Trained Grade 1 Teacher with a Diploma from a Government Teachers’ Training College, uniquely combining education—empowering through knowledge—with legal advocacy to fight systemic injustice.</p>
-        <p>With Cameroon being a bijural state where the French civil law and the English Common Law operate <em>pari passu</em> with municipal laws, Carlson AGWO has stood the challenges over many years of legal practice in both Anglophone and Francophone jurisdictions. He has been involved in proceedings at all different levels of jurisdiction and courts in Cameroon.</p>
-        <p>Prior to establishing AGWO CARLSON & PARTNERS LAW OFFICE, AGWO Carlson worked with renowned and top law firms, gaining significant experience in national and international corporate transactions and various litigations.</p>
+        <div class="row">
+            <div class="four columns">
+                <img src="images/managing-partner.jpg" alt="NDAM Carlson AGWO" class="profile-portrait">
+            </div>
+            
+            <div class="eight columns">
+                <h4 style="text-transform: uppercase; letter-spacing: 2px;">Professional Profile</h4>
+                <h5 style="color:#c5a059;">NDAM Carlson AGWO | Managing Partner</h5>
+                <p>NDAM Carlson AGWO is a seasoned public interest lawyer and the managing partner of AGWO CARLSON AND PARTNERS LAW OFFICE. He is a Barrister and Solicitor of the Supreme Court of Cameroon, as well as the Federal Supreme Court of Nigeria. Furthermore, he doubles as a Government Trained Grade 1 Teacher with a Diploma from a Government Teachers’ Training College, uniquely combining education—empowering through knowledge—with legal advocacy to fight systemic injustice.</p>
+                <p>With Cameroon being a bijural state where the French civil law and the English Common Law operate <em>pari passu</em> with municipal laws, Carlson AGWO has stood the challenges over many years of legal practice in both Anglophone and Francophone jurisdictions. He has been involved in proceedings at all different levels of jurisdiction and courts in Cameroon.</p>
+            </div>
+        </div>
+
         <div class="row" style="margin-top: 40px;">
             <div class="six columns">
                 <h6>Academic Credentials</h6>
